@@ -454,8 +454,8 @@ $body-emphasis-color:       $black !default;
 //
 // Style anchor elements.
 
-$link-color:                              $primary !default;
-$link-decoration:                         underline !default;
+$link-color:                              $white; // $primary !default;
+$link-decoration:                         none; // underline !default;
 $link-shade-percentage:                   20% !default;
 $link-hover-color:                        shift-color($link-color, $link-shade-percentage) !default;
 $link-hover-decoration:                   null !default;
@@ -634,17 +634,17 @@ $line-height-base:            1.5 !default;
 $line-height-sm:              1.25 !default;
 $line-height-lg:              2 !default;
 
-$h1-font-size:                $font-size-base * 3 !default;
-$h2-font-size:                $font-size-base * 2.5 !default;
-$h3-font-size:                $font-size-base * 2 !default;
-$h4-font-size:                $font-size-base * 1.75 !default;
-$h5-font-size:                $font-size-base * 1.5 !default;
-$h6-font-size:                $font-size-base * 1.25 !default;
-$title:                       $font-size-base !default;
-$subtitle:                    $font-size-base * 0.875 !default;
-$body:                        $font-size-base !default;
-$body2:                       $font-size-base * 0.875 !default;
-$tiny:                        $font-size-base * 0.75 !default;
+$h1-font-size:                $font-size-base * 3 !default; // 48
+$h2-font-size:                $font-size-base * 2.5 !default; // 40
+$h3-font-size:                $font-size-base * 2 !default; // 32
+$h4-font-size:                $font-size-base * 1.75 !default; // 28
+$h5-font-size:                $font-size-base * 1.5 !default; // v24
+$h6-font-size:                $font-size-base * 1.25 !default; // 20
+$title:                       $font-size-base !default; // 16
+$subtitle:                    $font-size-base * 0.875 !default; // 14
+$body:                        $font-size-base !default; // 176
+$body2:                       $font-size-base * 0.875 !default; // 14
+$tiny:                        $font-size-base * 0.75 !default; // 12
 // scss-docs-end font-variables
 
 // scss-docs-start font-sizes
