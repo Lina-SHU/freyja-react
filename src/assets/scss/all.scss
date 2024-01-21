@@ -1,4 +1,8 @@
-@import "../node_modules/bootstrap/scss/functions";
+@import url('https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap');
+
+@import "../../../node_modules/bootstrap/scss/functions";
 @import "./variables";
-@import "../node_modules/bootstrap/scss/mixins";
+@import "../../../node_modules/bootstrap/scss/mixins";
 @import "bootstrap";
+
+@import "./helper";
