@@ -52,7 +52,7 @@ const Registerstep1 = () => {
             />
             <Input
                 type="password"
-                id="password"
+                id="confirmPassword"
                 label="確認密碼"
                 placeholder="請輸入密碼"
                 register={register}
