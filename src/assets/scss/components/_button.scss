@@ -1,0 +1,9 @@
+.btn-account {
+    background-color: #ECECEC;
+    border-radius: 8px;
+    color: #909090;
+    &:hover {
+        background-color: $primary;
+        color: $white;
+    }
+}

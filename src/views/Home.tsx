@@ -1,8 +1,9 @@
+import { NavLink } from 'react-router-dom'
+
 const Home = () => {
     return (<>
         <h1>首頁</h1>
-        <button className="btn btn-primary">Primary</button>{' '}
-        <button className="btn btn-secondary">Secondary</button>{' '}
+        <NavLink to="/login" className="btn btn-primary">登入頁</NavLink>
     </>)
 };
 

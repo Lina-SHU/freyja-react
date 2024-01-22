@@ -1,6 +1,7 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom';
 
-import Home from './views/Home'
+import Home from './views/Home';
+import Login from './views/Login';
 
 function App() {
 
@@ -8,7 +9,8 @@ function App() {
     <>
       <Routes>
           {/* 路由表 */}
-          <Route path='/' element={<Home/>} />    
+          <Route path='/' element={<Home/>} />
+          <Route path='/login' element={<Login />} />
       </Routes>
     </>
   )

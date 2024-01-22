@@ -1,0 +1,27 @@
+.login-height {
+    min-height: calc(100vh - 80px);
+}
+
+.user-width{
+    @media (min-width: 960px) {
+        width: 50%;
+    }
+}
+
+.form-width{
+    @media (min-width: 960px) {
+        width: 75%;
+        margin: 0 auto;
+    }
+    @media (min-width: 1400px) {
+        width: 43%;
+    }
+}
+
+.user-image {
+    @media (min-width: 960px) {
+        background-image: url('../assets/img/pc/register.png');
+        background-size: cover;
+        background-position: center center;
+    }
+}
