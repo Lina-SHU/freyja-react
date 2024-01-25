@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-import { UserRegisterStep2 } from '../types/form.ts';
+import { UserRegisterStep2, UserRegister } from '../types/form.ts';
 import AuthSrv from '../service/Auth.ts';
 import Input from "../components/form/Input.tsx";
 import Checkbox from "../components/form/Checkbox";
@@ -33,7 +33,7 @@ const Registerstep2 = () => {
     };
 
     // 生日
-    const [year, setYear] = useState(1930);
+    const [year, setYear] = useState(1990);
     const [month, setMonth] = useState(-1);
     const [day, setDay] = useState(-1);
     const changeYear = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -77,7 +77,7 @@ const Registerstep2 = () => {
 
     const userRegister = (data: UserRegisterStep2) => {
         const userData = localStorage.getItem('user') || '';
-        const obj = {
+        const obj: UserRegister = {
             name: data.name,
             email: JSON.parse(userData).email,
             password: JSON.parse(userData).password,

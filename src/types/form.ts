@@ -22,26 +22,28 @@ export type UserLogin = {
     password: string
 }
 
-export type UserRegisterStep1 = {
+export interface UserRegisterStep1  {
     email: string,
     password: string,
-    confirmPassword: string
+    confirmPassword?: string
 }
 
-export type UserRegisterStep2 = {
+export interface UserRegisterStep2  {
     name: string,
     phone: string,
-    detail: string
+    detail?: string
 }
 
-export type UserRegister = {
+type Address = {
+    zipcode: string,
+    detail: string | undefined
+}
+
+export interface UserRegister extends UserRegisterStep1, UserRegisterStep2  {
     name: string,
     email: string,
     password: string,
     phone: string,
     birthday: string,
-    address: {
-        zipcode: string,
-        detail: string
-    }
+    address: Address
 }
