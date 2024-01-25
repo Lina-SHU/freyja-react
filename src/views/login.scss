@@ -1,7 +1,3 @@
-.login-height {
-    min-height: calc(100vh - 80px);
-}
-
 .user-width{
     @media (min-width: 992px) {
         width: 50%;
@@ -18,7 +14,7 @@
     }
 }
 
-.user-image {
+.bg-user {
     @media (min-width: 992px) {
         background-image: url('../assets/img/pc/register.png');
         background-size: cover;

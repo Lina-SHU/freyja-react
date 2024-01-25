@@ -8,12 +8,12 @@ const NavBar = () => {
     }
 
     return (<>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-4">
+        <nav className="navbar navbar-expand-lg py-4 position-fixed top-0 start-0 end-0">
             <div className="container-fluid">
-                <a className="navbar-br<and" href="#">
+                <a className="" href="#">
                     享樂酒店<br />
                     <span>Enjoyment Luxury Hotel</span>
-                </a>
+                </a> 
                 <button className="navbar-toggler" type="button" onClick={handleMenu}>
                     <span className="material-icons text-white" style={{ fontSize: '40px' }}>menu</span>
                 </button>

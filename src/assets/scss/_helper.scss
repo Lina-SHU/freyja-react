@@ -2,3 +2,26 @@ body {
     font-family: 'Castoro', serif;
     font-family: 'Noto Serif TC', serif;
 }
+
+.fullscrren-height {
+    min-height: calc(100vh - 84px);
+    @media (min-width: 992px) {
+        min-height: calc(100vh - 90px);
+    }
+}
+
+.space-top{
+    margin-top: 84px;
+    @media (min-width: 992px) {
+        margin-top: 90px;
+    }
+}
+
+.bg-banner {
+    background-image: url('../assets/img/mb/banner.png');
+    background-size: cover;
+    background-position: center center;
+    @media (min-width: 992px) {
+        background-image: url('../assets/img/pc/banner.png');
+    }
+}

@@ -44,7 +44,7 @@ const Login = () => {
 
     return (<>
         <h2 className="fs-subtitle fs-lg-title text-primary fw-bold mb-2">享樂酒店，誠摯歡迎</h2>
-        <h1 className="fw-bold fs-3 fs-lg-1 mb-8">立即開始旅程</h1>
+        <h1 className="fw-bold fs-3 fs-lg-1 mb-9">立即開始旅程</h1>
         <form onSubmit={handleSubmit(userlogin)}>
             <Input
                 type="email"
@@ -82,7 +82,7 @@ const Login = () => {
                     }
                 }}
             />
-            <div className="d-flex justify-content-between align-items-center mb-8">
+            <div className="d-flex justify-content-between align-items-center mb-9">
                 <Checkbox
                     id="remeberEmail"
                     label="記住帳號"
@@ -91,7 +91,7 @@ const Login = () => {
                 />
                 <a href="#" className="text-decoration-underline text-primary fw-bold fs-body2 fs-lg-body">忘記密碼？</a>
             </div>
-            <button type="submit" className="btn-account fw-bold py-4 w-100 mb-8">會員登入</button>
+            <button type="submit" className="btn-account fw-bold py-4 w-100 mb-9">會員登入</button>
         </form>
         <p className="mb-0">
             沒有會員嗎？

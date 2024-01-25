@@ -21,9 +21,9 @@ const Registerstep1 = () => {
 
     return (<>
         <h2 className="fs-subtitle fs-lg-title text-primary fw-bold mb-2">享樂酒店，誠摯歡迎</h2>
-        <h1 className="fw-bold fs-3 fs-lg-1 mb-8">立即註冊</h1>
+        <h1 className="fw-bold fs-3 fs-lg-1 mb-9">立即註冊</h1>
         {/* 進度條 */}
-        <div className="d-flex align-items-center justify-content-between fs-subtitle fs-lg-title mb-9">
+        <div className="d-flex align-items-center justify-content-between fs-subtitle fs-lg-title mb-10">
             <div>
                 <div className="stepNumber stepDone mx-auto mb-1">1</div>
                 <p className="mb-0">輸入信箱及密碼</p>
@@ -89,7 +89,7 @@ const Registerstep1 = () => {
                     }
                 }}
             />
-            <button type="submit" className="btn-account fw-bold py-4 w-100 mt-6 mb-8">下一步</button>
+            <button type="submit" className="btn-account fw-bold py-4 w-100 mt-6 mb-9">下一步</button>
         </form>
         <p className="mb-0">
             已經有會員了嗎？
