@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-import { UserRegisterStep2 } from '../types/type.ts';
+import { UserRegisterStep2 } from '../types/form.ts';
 import AuthSrv from '../service/Auth.ts';
 import Input from "../components/form/Input.tsx";
 import Checkbox from "../components/form/Checkbox";

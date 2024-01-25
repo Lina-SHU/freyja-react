@@ -1,6 +1,6 @@
 import axios from "axios"
 const { VITE_APIPATH } = import.meta.env;
-import { UserLogin, UserRegister } from "../types/type";
+import { UserLogin, UserRegister } from "../types/form";
 
 export default {
     async userLogin (obj: UserLogin) {

@@ -1,4 +1,4 @@
-import { CheckboxType } from "../../types/type";
+import { CheckboxType } from "../../types/form";
 
 const Checkbox = ({id, label, register, errors, rules}: CheckboxType) => {
     return (<>

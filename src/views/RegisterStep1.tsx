@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Input from "../components/form/Input.tsx";
-import { UserRegisterStep1 } from '../types/type.ts';
+import { UserRegisterStep1 } from '../types/form.ts';
 
 const Registerstep1 = () => {
     const navigate = useNavigate();

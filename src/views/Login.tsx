@@ -5,7 +5,7 @@ import withReactContent from 'sweetalert2-react-content';
 import './login.scss';
 import Input from "../components/form/Input";
 import Checkbox from "../components/form/Checkbox";
-import { UserLogin } from '../types/type';
+import { UserLogin } from '../types/form.ts';
 import AuthSrv from '../service/Auth.ts';
 
 const FreyjaSwal = withReactContent(Swal);

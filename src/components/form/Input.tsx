@@ -1,4 +1,4 @@
-import { InputType } from "../../types/type";
+import { InputType } from "../../types/form";
 
 const Input = ({type, id, label, placeholder, register, errors, rules}: InputType) => {
     return (<>
