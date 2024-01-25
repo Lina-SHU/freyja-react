@@ -1,10 +1,14 @@
 import { useForm } from 'react-hook-form';
-import './login.scss';
 import { NavLink } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+import './login.scss';
 import Input from "../components/form/Input";
 import Checkbox from "../components/form/Checkbox";
 import { UserLogin } from '../types/type';
 import AuthSrv from '../service/Auth.ts';
+
+const FreyjaSwal = withReactContent(Swal);
 
 const Login = () => {
     const {
@@ -17,7 +21,24 @@ const Login = () => {
 
     const userlogin = (data: UserLogin): void => {
         AuthSrv.userLogin(data).then((res) => {
-            console.log(res);
+            if (!res?.isSuccess && res?.msg) {
+                return FreyjaSwal.fire({
+                    title: `${res.msg || '登入失敗'}`,
+                    icon: 'warning',
+                    toast: true
+                });
+            };
+            FreyjaSwal.fire({
+                toast: true,
+                icon: 'success',
+                position: 'center',
+                title: '登入成功',
+                showConfirmButton: false,
+                timer: 1500,
+                width: 500,
+                background: '#F0F0F2',
+                padding: 25
+            })
         })
     }
 
@@ -36,6 +57,10 @@ const Login = () => {
                     required: {
                         value: true,
                         message: '電子信箱為必填'
+                    },
+                    pattern: {
+                        value: /^\S+@\S+$/i,
+                        message: '請填寫正確的電子信箱'
                     }
                 }}
             />
@@ -50,11 +75,20 @@ const Login = () => {
                     required: {
                         value: true,
                         message: '密碼為必填'
+                    },
+                    pattern: {
+                        value: /^(?=.*[a-z][A-Z])(?=.*[0-9]).{8,}$/,
+                        message: '密碼須為英數字混合，且長度至少 8 碼'
                     }
                 }}
             />
             <div className="d-flex justify-content-between align-items-center mb-8">
-                <Checkbox id="remeberEmail" label="記住帳號" />
+                <Checkbox
+                    id="remeberEmail"
+                    label="記住帳號"
+                    register={register}
+                    errors={errors}
+                />
                 <a href="#" className="text-decoration-underline text-primary fw-bold fs-body2 fs-lg-body">忘記密碼？</a>
             </div>
             <button type="submit" className="btn-account fw-bold py-4 w-100 mb-8">會員登入</button>

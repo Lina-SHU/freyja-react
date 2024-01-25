@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { UserLogin } from '../types/type.ts';
 import Input from "../components/form/Input.tsx";
+import { UserRegisterStep1 } from '../types/type.ts';
 
 const Registerstep1 = () => {
     const navigate = useNavigate();
@@ -10,18 +10,31 @@ const Registerstep1 = () => {
         register,
         handleSubmit,
         formState: { errors }
-    } = useForm<UserLogin>({
+    } = useForm<UserRegisterStep1>({
         mode: 'onTouched'
     });
 
-    const userlogin = (): void => {
+    const getUserData = (data: UserRegisterStep1): void => {
+        localStorage.setItem('user', JSON.stringify(data));
         navigate('/freyja/Registerstep2');
     }
 
     return (<>
         <h2 className="fs-subtitle fs-lg-title text-primary fw-bold mb-2">享樂酒店，誠摯歡迎</h2>
         <h1 className="fw-bold fs-3 fs-lg-1 mb-8">立即註冊</h1>
-        <form onSubmit={handleSubmit(userlogin)}>
+        {/* 進度條 */}
+        <div className="d-flex align-items-center justify-content-between fs-subtitle fs-lg-title mb-9">
+            <div>
+                <div className="stepNumber stepDone mx-auto mb-1">1</div>
+                <p className="mb-0">輸入信箱及密碼</p>
+            </div>
+            <div className='progreebar bg-stepUndo'></div>
+            <div>
+                <div className="stepNumber stepUndo mx-auto mb-1">2</div>
+                <p className="stepUndo mb-0">填寫基本資料</p>
+            </div>
+        </div>
+        <form onSubmit={handleSubmit(getUserData)}>
             <Input
                 type="email"
                 id="email"
@@ -33,6 +46,10 @@ const Registerstep1 = () => {
                     required: {
                         value: true,
                         message: '電子信箱為必填'
+                    },
+                    pattern: {
+                        value: /^\S+@\S+$/i,
+                        message: '請填寫正確的電子信箱'
                     }
                 }}
             />
@@ -47,6 +64,10 @@ const Registerstep1 = () => {
                     required: {
                         value: true,
                         message: '密碼為必填'
+                    },
+                    pattern: {
+                        value: /^(?=.*[a-z])(?=.*[0-9]).{8,}$/,
+                        message: '密碼須為英數字混合，且長度至少 8 碼'
                     }
                 }}
             />
@@ -61,6 +82,10 @@ const Registerstep1 = () => {
                     required: {
                         value: true,
                         message: '密碼為必填'
+                    },
+                    pattern: {
+                        value: /^(?=.*[a-z])(?=.*[0-9]).{8,}$/,
+                        message: '密碼須為英數字混合，且長度至少 8 碼'
                     }
                 }}
             />

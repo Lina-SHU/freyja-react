@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 
 import Home from './views/Home';
-import Freyja from './Freyja';
+import Freyja from './views/Freyja';
 import Login from './views/Login';
 import RegisterStep1 from './views/RegisterStep1';
 import Registerstep2 from './views/RegisterStep2';
