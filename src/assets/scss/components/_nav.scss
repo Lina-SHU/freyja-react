@@ -1,0 +1,35 @@
+.nav-menu{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: $body-bg;
+    transition: all ease 0.8s;
+    @media (min-width: 992px) {
+        position: initial;
+    }
+}
+
+.navbar-nav{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.button-close{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.transformYmenu{
+    top: -1000px;
+    bottom: 1000px;
+}
+
+.navbar-nav-width{
+    width: 100%;
+    @media (min-width: 992px) {
+        width: auto;
+    }
+}

@@ -1,4 +1,12 @@
+import { useState } from "react";
+
 const NavBar = () => {
+
+    const [hideMenu, setHideMenu] = useState(true);
+    const handleMenu = () => {
+        setHideMenu(!hideMenu);
+    }
+
     return (<>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-4">
             <div className="container-fluid">
@@ -6,24 +14,29 @@ const NavBar = () => {
                     享樂酒店<br />
                     <span>Enjoyment Luxury Hotel</span>
                 </a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
+                <button className="navbar-toggler" type="button" onClick={handleMenu}>
+                    <span className="material-icons text-white" style={{ fontSize: '40px' }}>menu</span>
                 </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav">
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">客房旅宿</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">會員登入</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">立即訂房</a>
-                    </li>
-                </ul>
+                <div className={`collapse navbar-collapse nav-menu d-flex align-center ${ hideMenu ? 'transformYmenu' : ''}`} id="navbarNav">
+                    <div className="text-end button-close">
+                        <button className="navbar-toggler" type="button" onClick={handleMenu}>
+                        <span className="material-icons text-white" style={{ fontSize: '64px' }}>close</span>
+                        </button>
+                    </div>
+                    <ul className="navbar-nav navbar-nav-width ms-lg-auto">
+                        <li className="nav-item mb-4 mb-lg-0 mx-lg-2">
+                            <a className="nav-link py-4 text-white text-center px-lg-4" href="#">客房旅宿</a>
+                        </li>
+                        <li className="nav-item mb-4 mb-lg-0 mx-lg-2">
+                            <a className="nav-link py-4 text-white text-center px-lg-4" href="#">會員登入</a>
+                        </li>
+                        <li className="nav-item mx-lg-2">
+                            <button className="btn btn-primary py-4 text-white text-center w-100 px-lg-7">立即訂房</button>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            </nav>
+        </nav>
     </>)
 };
 
