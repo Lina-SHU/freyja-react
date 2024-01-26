@@ -14,7 +14,7 @@ const NavBar = () => {
                     享樂酒店<br />
                     <span>Enjoyment Luxury Hotel</span>
                 </a> 
-                <button className="navbar-toggler" type="button" onClick={handleMenu}>
+                <button type="button" className="btn d-lg-none border-0" onClick={handleMenu}>
                     <span className="material-icons text-white" style={{ fontSize: '40px' }}>menu</span>
                 </button>
                 <div className={`collapse navbar-collapse nav-menu d-flex align-center ${ hideMenu ? 'transformYmenu' : ''}`} id="navbarNav">
