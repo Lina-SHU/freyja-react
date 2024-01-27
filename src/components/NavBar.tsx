@@ -11,10 +11,10 @@ const NavBar = () => {
     return (<>
         <nav className="navbar navbar-expand-lg py-4 position-fixed top-0 start-0 end-0">
             <div className="container-fluid">
-                <a className="" href="#">
+                <NavLink to="/">
                     享樂酒店<br />
                     <span>Enjoyment Luxury Hotel</span>
-                </a> 
+                </NavLink> 
                 <button type="button" className="btn d-lg-none border-0" onClick={handleMenu}>
                     <span className="material-icons text-white" style={{ fontSize: '40px' }}>menu</span>
                 </button>

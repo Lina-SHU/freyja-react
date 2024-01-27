@@ -1,9 +1,29 @@
 .btn-account {
     background-color: #ECECEC;
-    border-radius: 8px;
     color: #909090;
+}
+
+.btn-home {
+    background: $white;
+    color: $dark;
+}
+
+.btn-CTA {
+    border-radius: 8px;
     &:hover {
         background-color: $primary;
         color: $white;
+        .btn-divide{
+            background-color: $white;
+        }
+    }
+}
+
+.btn-divide{
+    width: 26%;
+    height: 1px;
+    background-color: $dark;
+    @media (min-width: 992px) {
+        width: 20%;
     }
 }

@@ -77,7 +77,7 @@ const Login = () => {
                         message: '密碼為必填'
                     },
                     pattern: {
-                        value: /^(?=.*[a-z][A-Z])(?=.*[0-9]).{8,}$/,
+                        value: /^(?=.*[a-z])(?=.*[0-9]).{8,}$/,
                         message: '密碼須為英數字混合，且長度至少 8 碼'
                     }
                 }}
@@ -91,7 +91,7 @@ const Login = () => {
                 />
                 <a href="#" className="text-decoration-underline text-primary fw-bold fs-body2 fs-lg-body">忘記密碼？</a>
             </div>
-            <button type="submit" className="btn-account fw-bold py-4 w-100 mb-9">會員登入</button>
+            <button type="submit" className="btn-account btn-CTA fw-bold py-4 w-100 mb-9">會員登入</button>
         </form>
         <p className="mb-0">
             沒有會員嗎？

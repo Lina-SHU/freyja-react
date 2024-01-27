@@ -89,7 +89,7 @@ const Registerstep1 = () => {
                     }
                 }}
             />
-            <button type="submit" className="btn-account fw-bold py-4 w-100 mt-6 mb-9">下一步</button>
+            <button type="submit" className="btn-account btn-CTA fw-bold py-4 w-100 mt-6 mb-9">下一步</button>
         </form>
         <p className="mb-0">
             已經有會員了嗎？

@@ -32,7 +32,6 @@ body {
     z-index: 0;
 }
 
-
 .divide-line{
     width: 2px;
     height: 83px;
@@ -67,4 +66,22 @@ body {
 
 .w-30{
     width: 30%;
+}
+
+.banner-title-width{
+    @media (min-width: 992px) {
+        width: 55%;
+    }
+}
+
+.banner-subTitle-width{
+    @media (min-width: 992px) {
+        width: 36%;
+    }
+}
+
+.banner-divide-line{
+    @media (min-width: 992px) {
+        width: 100%;
+    }
 }
