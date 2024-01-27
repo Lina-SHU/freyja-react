@@ -117,7 +117,9 @@ const Registerstep2 = () => {
             <h1 className="fw-bold fs-3 fs-lg-1 mb-9">立即註冊</h1>
             <div className="d-flex align-items-center justify-content-between fs-subtitle fs-lg-title mb-10">
                 <div>
-                    <div className="stepNumber stepDone mx-auto mb-1">1</div>
+                    <div className="stepNumber stepDone mx-auto mb-1">
+                        <span className="material-icons text-white">done</span>
+                    </div>
                     <p className="mb-0">輸入信箱及密碼</p>
                 </div>
                 <div className='progreebar bg-white'></div>

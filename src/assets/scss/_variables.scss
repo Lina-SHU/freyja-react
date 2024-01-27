@@ -308,6 +308,7 @@ $danger:        #DA3E51; // $red !default;
 $light:         $gray-100 !default;
 $dark:          #000000; //$gray-900 !default;
 $normal:        #ECECEC;
+$neutral :#4B4B4B;
 // scss-docs-end theme-color-variables
 
 // scss-docs-start theme-colors-map
@@ -320,7 +321,8 @@ $theme-colors: (
   "danger":     $danger,
   "light":      $light,
   "dark":       $dark,
-  "normal":     $normal
+  "normal":     $normal,
+  "neutral":    $neutral
 ) !default;
 // scss-docs-end theme-colors-map
 
@@ -556,7 +558,7 @@ $border-color-translucent:    rgba($black, .175) !default;
 $border-radius:               .375rem !default;
 $border-radius-sm:            .25rem !default;
 $border-radius-lg:            .5rem !default;
-$border-radius-xl:            1rem !default;
+$border-radius-xl:            1.25rem !default;
 $border-radius-xxl:           2rem !default;
 $border-radius-pill:          50rem !default;
 // scss-docs-end border-radius-variables
