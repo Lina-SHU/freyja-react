@@ -91,7 +91,7 @@ const Registerstep2 = () => {
         AuthSrv.userRegister(obj).then((res) => {
             if (!res?.isSuccess && res?.msg) {
                 return FreyjaSwal.fire({
-                    title: `${res.msg || '登入失敗'}`,
+                    title: `${res.msg || '註冊失敗'}`,
                     icon: 'warning',
                     toast: true
                 });
@@ -100,7 +100,7 @@ const Registerstep2 = () => {
                 toast: true,
                 icon: 'success',
                 position: 'center',
-                title: '登入成功',
+                title: '註冊成功',
                 showConfirmButton: false,
                 timer: 1500,
                 width: 500,
@@ -261,7 +261,7 @@ const Registerstep2 = () => {
                         }}
                     />
                 </div>
-                <button type="submit" className="btn-account fw-bold py-4 w-100 mb-9">完成註冊</button>
+                <button type="submit" className="btn-account btn-CTA fw-bold py-4 w-100 mb-9">完成註冊</button>
             </form>
             <p className="mb-0">
                 已經有會員了嗎？
