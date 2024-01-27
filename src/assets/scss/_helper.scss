@@ -3,6 +3,10 @@ body {
     font-family: 'Noto Serif TC', serif;
 }
 
+.bg-section{
+    background-color: #F7F2EE;
+}
+
 .fullscrren-height {
     min-height: calc(100vh - 84px);
     @media (min-width: 992px) {
@@ -51,7 +55,6 @@ body {
 .room-space{
     padding-top: 40px;
     padding-bottom: 18px;
-    background-color: #F7F2EE;
     @media (min-width: 992px) {
         padding-top: 80px;
         padding-bottom: 120px;
@@ -68,6 +71,7 @@ body {
     width: 30%;
 }
 
+// 首頁 banner
 .banner-title-width{
     @media (min-width: 992px) {
         width: 55%;
@@ -83,5 +87,40 @@ body {
 .banner-divide-line{
     @media (min-width: 992px) {
         width: 100%;
+    }
+}
+
+// 首頁 section title
+.title-divide{
+    height: 2px;
+    background:linear-gradient(to right, #BE9C7C, $white);
+}
+
+.bg-news{
+    height: 294px;
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+    @media (min-width: 992px) {
+        width: 44%;
+    }
+}
+
+.news-title {
+    width: 40%;
+    @media (min-width: 992px) {
+        width: 11%;
+    }
+}
+
+.news-content{
+    @media (min-width: 992px) {
+        width: 83%;
+    }
+}
+
+.news-body{
+    @media (min-width: 992px) {
+        width: 56%;
     }
 }

@@ -43,7 +43,7 @@ const RoomList = () => {
                 <h1 className="fs-3 fs-lg-1 fw-bold mb-0">客房旅宿</h1>
             </div>
         </div>
-        <div className="room-space">
+        <div className="room-space bg-section">
             <div className="container">
                 <p className="fs-subtitle text-neutral mb-2">房型選擇</p>
                 <h3 className="text-primary fs-3 mb-8">各種房型，任您挑選</h3>
