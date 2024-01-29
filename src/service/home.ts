@@ -1,6 +1,6 @@
 import axios from "axios"
 const { VITE_APIPATH } = import.meta.env;
-import { ApiResponse, News, ServiceResponse } from "../types/api";
+import { ApiResponse, News, Culinary, ServiceResponse } from "../types/api";
 
 export default {
     // 取得最新消息
@@ -28,5 +28,31 @@ export default {
             }
             throw(error);
         }
-    }
+    },
+    // 取得美味佳餚
+    async getCulinary (): Promise<ServiceResponse<Culinary>> {
+        try {
+            const res = await axios.get(`${VITE_APIPATH}/home/culinary`);
+            if (!res.status) return {
+                isSuccess: false,
+                msg: '伺服器錯誤'
+            };
+
+            const result: ApiResponse<Culinary> = res.data;
+
+            return {
+                isSuccess: true,
+                data: result.result
+            }
+        } catch (error) {
+            if (axios.isAxiosError(error) && error.response) {
+                
+                return {
+                    isSuccess: false,
+                    msg: error.response.data.message
+                }
+            }
+            throw(error);
+        }
+    },
 }
