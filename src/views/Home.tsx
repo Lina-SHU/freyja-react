@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ServiceSuccessResponse, News } from '../types/api';
 import homeSrv from '../service/home';
 import Footer from "../components/Footer";
+import './home.scss';
 
 const Home = () => {
     const [news, setNews] = useState<News[]>([]);

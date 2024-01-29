@@ -1,0 +1,23 @@
+.card-divide-line{
+    height: 2px;
+    background:linear-gradient(to right, #BE9C7C, $white);
+}
+
+.room-space{
+    padding-top: 40px;
+    padding-bottom: 18px;
+    @media (min-width: 992px) {
+        padding-top: 80px;
+        padding-bottom: 120px;
+    }
+}
+
+.detail-width{
+    @media (min-width: 1400px) {
+        width: 73%;
+    }
+}
+
+.w-30{
+    width: 30%;
+}

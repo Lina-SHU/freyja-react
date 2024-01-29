@@ -1,0 +1,52 @@
+// 首頁 banner
+.banner-title-width{
+    @media (min-width: 992px) {
+        width: 55%;
+    }
+}
+
+.banner-subTitle-width{
+    @media (min-width: 992px) {
+        width: 36%;
+    }
+}
+
+.banner-divide-line{
+    @media (min-width: 992px) {
+        width: 100%;
+    }
+}
+
+.bg-news{
+    height: 294px;
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+    @media (min-width: 992px) {
+        width: 44%;
+    }
+}
+
+.title-divide{
+    height: 2px;
+    background:linear-gradient(to right, #BE9C7C, $white);
+}
+
+.news-title {
+    width: 40%;
+    @media (min-width: 992px) {
+        width: 11%;
+    }
+}
+
+.news-content{
+    @media (min-width: 992px) {
+        width: 83%;
+    }
+}
+
+.news-body{
+    @media (min-width: 992px) {
+        width: 56%;
+    }
+}

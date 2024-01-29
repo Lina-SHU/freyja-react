@@ -12,6 +12,7 @@ import areaIcon from '../assets/img/icon/area.png';
 import bedIconn from '../assets/img/icon/bed.png';
 import peopleIcon from '../assets/img/icon/people.png';
 import arrowright from '../assets/img/icon/arrowright.png';
+import './roomList.scss';
 
 const RoomList = () => {
     const [rooms, setRooms] = useState<Room[]>([]);
