@@ -50,3 +50,36 @@
         width: 56%;
     }
 }
+
+.trans-space{
+    padding-top: 80px;
+    padding-bottom: 40px;
+    @media (min-width: 992px) {
+        padding-top: 120px;
+        padding-bottom: 80px;
+    }
+}
+
+.divide-width{
+    width: 55%;
+    @media (min-width: 992px) {
+        width: 12%;
+    }
+}
+
+.mapImg{
+    background-image: url('../assets/img/mb/map.png');
+    height: 380px;
+    background-size: cover;
+    background-position: center;
+    @media (min-width: 992px) {
+        background-image: url('../assets/img/pc/map.png');
+    }
+}
+
+.transIcon{
+    width: 40px;
+    @media (min-width: 992px) {
+        width: 80px;
+    }
+}
