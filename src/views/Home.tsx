@@ -1,6 +1,14 @@
 import { useEffect, useState } from 'react';
-import { ServiceSuccessResponse, News } from '../types/api';
+import { ServiceSuccessResponse, News, Culinary, Room } from '../types/api';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore from 'swiper';
+import { Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import homeSrv from '../service/home';
+import roomSrv from '../service/room';
+import currencyUtil from "../service/utils"; 
 import Footer from "../components/Footer";
 import './home.scss';
 import carIcon from '../assets/img/icon/ic_car.png';
@@ -8,10 +16,42 @@ import trainIcon from '../assets/img/icon/ic_train.png';
 import luxuryCarIcon from '../assets/img/icon/ic_luxurycar.png';
 import transMBImg from '../assets/img/mb/line.png';
 import transPCImg from '../assets/img/pc/line2.png';
+import leftIcon from '../assets/img/icon/leftButton.png';
+import rightIcon from '../assets/img/icon/rightButton.png';
 
 const Home = () => {
-    const [news, setNews] = useState<News[]>([]);
+
+    const [swiper, setSwiper] = useState<SwiperCore>();
+    const prevPage = (e: React.MouseEvent) => {
+        e.preventDefault();
+        console.log(swiper)
+        if (swiper && swiper.slidePrev) {
+            swiper.slidePrev();
+        }
+    };
+    const nextPage = (e: React.MouseEvent) => {
+        e.preventDefault();
+        console.log(swiper)
+        if (swiper && swiper.slideNext) {
+            swiper.slideNext();
+        }
+    };
+
+    const [rooms, setRooms] = useState<Room[]>([]);
     const getRooms = () => {
+        roomSrv.getRoomList().then((res) => {
+            if (!res.isSuccess) return;
+            setRooms((res as ServiceSuccessResponse<Room>).data);
+        })
+    };
+
+    useEffect(() => {
+        getRooms();
+    }, []);
+
+    // 最新消息
+    const [news, setNews] = useState<News[]>([]);
+    const getNews = () => {
         homeSrv.getNews().then((res) => {
             if (!res.isSuccess) return;
             setNews((res as ServiceSuccessResponse<News>).data);
@@ -19,7 +59,20 @@ const Home = () => {
     };
 
     useEffect(() => {
-        getRooms();
+        getNews();
+    }, []);
+
+    // 佳餚美饌
+    const [culinaries, setCulinaries] = useState<Culinary[]>([]);
+    const getCulinary = () => {
+        homeSrv.getCulinary().then((res) => {
+            if (!res.isSuccess) return;
+            setCulinaries((res as ServiceSuccessResponse<Culinary>).data);
+        })
+    };
+
+    useEffect(() => {
+        getCulinary();
     }, []);
 
     return (<>
@@ -58,7 +111,7 @@ const Home = () => {
                     </div>
                     <ul className="news-content list-unstyled mb-0">
                         {
-                            news.length ? (
+                            news.length > 0 && (
                                 news.map((n) => {
                                     return (
                                         <li key={n._id} className="mb-8 d-lg-flex align-items-lg-center w-100">
@@ -75,13 +128,80 @@ const Home = () => {
                                         </li>
                                     )
                                 })
-                            ) : ''
+                            )
                         }
                     </ul>
                 </div>
             </section>
             {/*  */}
-            {/*  */}
+            {/* 房客旅宿 */}
+            <section className='pb-13 pt-5 py-lg-18'>
+                <div className="room-container">
+                    <Swiper
+                        className='room-swiper'
+                        allowTouchMove={false}
+                        onSwiper={setSwiper}
+                    >
+                        {
+                            rooms.length > 0 && 
+                                rooms.map((room) => {
+                                    return (
+                                        <SwiperSlide key={room._id} className='bg-transparent d-lg-flex align-items-lg-end'>
+                                            <Swiper
+                                                pagination={{
+                                                    clickable: true
+                                                }}
+                                                modules={[Pagination]}
+                                                className='roomPic-swiper mb-6 mb-lg-0 me-lg-13 ms-lg-0'
+                                            >
+                                                {
+                                                    room.imageUrlList.map((image) => {
+                                                        return (
+                                                            <SwiperSlide key={image}>
+                                                                <img src={image} alt={room.name} />
+                                                            </SwiperSlide>
+                                                        )
+                                                    })
+                                                }
+                                            </Swiper>
+                                            <div>
+                                                <h3 className='fs-4 fs-lg-2 fw-bold mb-2 mg-lg-4'>{room.name}</h3>
+                                                <p className='fs-body2 fs-lg-body mb-6 mb-lg-8'>{room.description}</p>
+                                                <p className='fs-5 fw-bold mb-6 mb-lg-8'>NT$ {currencyUtil(room.price)}</p>
+                                                <button type='button' className="btn btn-home btn-CTA w-100 fw-bold fs-title fs-lg-5 rounded-3 d-flex align-items-center justify-content-end p-5 p-lg-8 mb-6 mb-lg-8">
+                                                    <span className="me-4">立即訂房</span>
+                                                    <div className="btn-divide"></div>
+                                                </button>
+                                                <div className="d-flex justify-content-end">
+                                                    <a href="#" onClick={(e) => prevPage(e)}>
+                                                        <img src={leftIcon} alt="上一頁" />
+                                                    </a>
+                                                    <a href="#" onClick={(e) => nextPage(e)}>
+                                                        <img src={rightIcon} alt="下一頁" />
+                                                    </a>
+                                                    {/* {
+                                                        swiper?.activeIndex !== 0 && (
+                                                            <a href="#" onClick={(e) => prevPage(e)}>
+                                                                <img src={leftIcon} alt="上一頁" />
+                                                            </a>
+                                                        )
+                                                    }
+                                                    {
+                                                        rooms.length - 1 !== swiper?.activeIndex && (
+                                                            <a href="#" onClick={(e) => nextPage(e)}>
+                                                                <img src={rightIcon} alt="上一頁" />
+                                                            </a>
+                                                        )
+                                                    } */}
+                                                </div>
+                                            </div>
+                                        </SwiperSlide>
+                                    )
+                                })
+                        }
+                    </Swiper>
+                </div>
+            </section>
             {/* 佳餚美饌 */}
             <section className="bg-section py-13 py-lg-18">
                 <div className="container">
@@ -92,10 +212,44 @@ const Home = () => {
                         </h2>
                         <div className="divide-width title-divide"></div>
                     </div>
+                    <Swiper
+                        slidesPerView={1.2}
+                        spaceBetween={24}
+                        loop={true}
+                        className='culinary-swiper'
+                        breakpoints={{
+                            768: {
+                                slidesPerView: 2.2
+                            },
+                            992: {
+                                slidesPerView: 3.2
+                            }
+                        }}
+                    >
+                        {
+                            culinaries.length ? (
+                                culinaries.map((culinary) => {
+                                    return (
+                                        <SwiperSlide key={culinary._id} className='rounded-3 overflow-hidden' style={{ backgroundImage: `url(${culinary.image})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
+                                            <div className='d-flex flex-column justify-content-end h-100'>
+                                                <div className='p-4 bg-blur blur-height'>
+                                                    <div className="d-flex justify-content-between align-items-center mb-4">
+                                                        <h3 className='fs-5 fw-bold'>{culinary.title}</h3>
+                                                        <p className='fs-subtitle fw-bold mb-0'>{culinary.diningTime}</p>
+                                                    </div>
+                                                    <p className='fs-body2 mb-0'>{culinary.description}</p>
+                                                </div>
+                                            </div>
+                                        </SwiperSlide>
+                                    )
+                                })
+                            ) : ''
+                        }
+                    </Swiper>
                 </div>
             </section>
             {/* 交通方式 */}
-            <section className='trans-space'>
+            <section className='pt-13 pb-8 pt-lg-18 pb-lg-13'>
                 <div className="container">
                     <div className="d-flex align-items-center mb-8">
                         <h2 className="fs-3 fs-lg-1 fw-bold text-primary me-8">

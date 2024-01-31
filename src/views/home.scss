@@ -51,15 +51,6 @@
     }
 }
 
-.trans-space{
-    padding-top: 80px;
-    padding-bottom: 40px;
-    @media (min-width: 992px) {
-        padding-top: 120px;
-        padding-bottom: 80px;
-    }
-}
-
 .divide-width{
     width: 55%;
     @media (min-width: 992px) {
@@ -81,5 +72,29 @@
     width: 40px;
     @media (min-width: 992px) {
         width: 80px;
+    }
+}
+
+.culinary-height{
+    height: 480px;
+}
+
+.bg-blur{
+    backdrop-filter: blur(10px);
+}
+
+.blur-height{
+    height: 182px;
+    @media (min-width: 992px) {
+        height: 197px;
+    }
+}
+
+.room-container{
+    padding-left: 12px;
+    padding-right: 12px;
+    @media (min-width: 992px) {
+        padding-left: 0;
+        padding-right: 0;
     }
 }
