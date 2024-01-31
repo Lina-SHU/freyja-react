@@ -49,7 +49,7 @@ const RoomList = () => {
                 <p className="fs-subtitle text-neutral mb-2">房型選擇</p>
                 <h3 className="text-primary fs-3 mb-8">各種房型，任您挑選</h3>
                 {
-                    rooms.length ? (
+                    rooms.length > 0 && (
                         rooms.map((room) => {
                             return (
                                 <div key={room._id} className="border rounded-4 bg-white overflow-hidden d-lg-flex mb-6 mb-lg-9">
@@ -59,11 +59,12 @@ const RoomList = () => {
                                             modules={[Pagination, Navigation]}
                                             navigation={true}
                                             loop={true}
+                                            className='roooms-swiper'
                                         >
                                             {
                                                 room.imageUrlList.map((image) => {
                                                     return (
-                                                        <SwiperSlide className='text-dark bg-info' key={image}>
+                                                        <SwiperSlide key={image}>
                                                             <img src={image} alt={room.name} />
                                                         </SwiperSlide>
                                                     )
@@ -105,7 +106,7 @@ const RoomList = () => {
                                 </div>
                             )
                         })
-                    ) : ''
+                    )
                 }
             </div>
         </div>

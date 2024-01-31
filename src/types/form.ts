@@ -31,15 +31,15 @@ export interface UserRegisterStep1  {
 export interface UserRegisterStep2  {
     name: string,
     phone: string,
-    detail?: string
+    detail: string
 }
 
 type Address = {
     zipcode: string,
-    detail: string | undefined
+    detail: string
 }
 
-export interface UserRegister extends UserRegisterStep1, UserRegisterStep2  {
+export interface UserRegister extends UserRegisterStep1, Partial<UserRegisterStep2>  {
     name: string,
     email: string,
     password: string,
