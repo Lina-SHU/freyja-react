@@ -1,11 +1,11 @@
 import axios from "axios"
-const { VITE_APIPATH } = import.meta.env;
+import { axiosInstance } from "../util/axios";
 import { UserLogin, UserRegister } from "../types/form";
 
 export default {
     async userLogin (obj: UserLogin) {
         try {
-            const res = await axios.post(`${VITE_APIPATH}/user/login`, obj);
+            const res = await axiosInstance.post(`/user/login`, obj);
             if (!res.status) return;
 
             return {
@@ -22,7 +22,7 @@ export default {
     },
     async userRegister (obj: UserRegister) {
         try {
-            const res = await axios.post(`${VITE_APIPATH}/user/signup`, obj);
+            const res = await axiosInstance.post(`/user/signup`, obj);
             if (!res.status) return;
 
             return {
