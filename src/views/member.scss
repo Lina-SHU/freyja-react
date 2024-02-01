@@ -1,0 +1,38 @@
+.bg-member{
+    background-image: url('../assets//img/pc/hero.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.memberImg{
+    width: 72px;
+    @media (min-width: 992px) {
+        width: 144px;
+    }
+}
+
+.member{
+    .nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+        background-color: transparent;
+        color: #BF9D7D;
+        position: relative;
+        &:after {
+            content: '';
+            width: 32px;
+            height: 4px;
+            background-color: #BF9D7D;
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+}
+
+
+.pwd-dot{
+    width: 8px;
+    height: 8px;
+    background-color: #000;
+    border-radius: 50%;
+}

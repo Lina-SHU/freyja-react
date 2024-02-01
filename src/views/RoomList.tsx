@@ -6,7 +6,7 @@ import 'swiper/css/navigation';
 import { useEffect, useState } from 'react';
 import { ServiceSuccessResponse, Room } from '../types/api'; 
 import Footer from "../components/Footer";
-import currencyUtil from "../service/utils"; 
+import currencyUtil from "../util/utils"; 
 import roomSrv from '../service/room';
 import areaIcon from '../assets/img/icon/area.png';
 import bedIconn from '../assets/img/icon/bed.png';
