@@ -1,8 +1,12 @@
 import MemberInfo from "../components/member/MemberInfo";
 import MemberOrder from "../components/member/MemberOrder";
 import './member.scss';
+import { useOutletContext } from "react-router-dom";
+import { ContextType } from "../types/member";
 
 const MemberNav = () => {
+    const { memberInfo } = useOutletContext<ContextType>();
+
     return (<>
         <div className="member container py-8">
             <ul className="nav nav-pills mb-8 mb-lg-13" role="tablist">
@@ -15,7 +19,7 @@ const MemberNav = () => {
             </ul>
             <div className="tab-content" id="pills-tabContent">
                 <div className="tab-pane fade show active" id="pills-memberinfo" role="tabpanel" aria-labelledby="pills-memberinfo-tab">
-                    <MemberInfo />
+                    <MemberInfo memberInfo={memberInfo} />
                 </div>
                 <div className="tab-pane fade" id="pills-order" role="tabpanel" aria-labelledby="pills-order-tab">
                     <MemberOrder />

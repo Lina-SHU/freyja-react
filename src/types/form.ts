@@ -34,7 +34,7 @@ export interface UserRegisterStep2  {
     detail: string
 }
 
-type Address = {
+export type Address = {
     zipcode: string,
     detail: string
 }
