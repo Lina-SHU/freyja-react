@@ -19,7 +19,7 @@ const RoomList = () => {
     const getRooms = () => {
         roomSrv.getRoomList().then((res) => {
             if (!res.isSuccess) return;
-            setRooms((res as ServiceSuccessResponse<Room>).data);
+            setRooms((res as ServiceSuccessResponse<Room[]>).data);
         })
     };
 
