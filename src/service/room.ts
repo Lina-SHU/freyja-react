@@ -4,7 +4,7 @@ import { ApiResponse, Room, ServiceResponse } from "../types/api";
 
 export default {
     // 取得所有房型
-    async getRoomList (): Promise<ServiceResponse<Room>> {
+    async getRoomList (): Promise<ServiceResponse<Room[]>> {
         try {
             const res = await axiosInstance.get(`/rooms`);
             if (!res.status) return {
@@ -12,7 +12,7 @@ export default {
                 msg: '伺服器錯誤'
             };
 
-            const result: ApiResponse<Room> = res.data;
+            const result: ApiResponse<Room[]> = res.data;
 
             return {
                 isSuccess: true,

@@ -1,13 +1,13 @@
 // API GET response
 export type ApiResponse<T> = {
-    result: T[];
+    result: T;
     status: string;
 };
 
 // API succss return
 export interface ServiceSuccessResponse<T> {
     isSuccess: boolean;
-    data: T[] ;
+    data: T;
 };
 
 // API error  return
@@ -60,6 +60,42 @@ export type Room = {
     status: number,
     layoutInfo: ResourceProvided[],
     facilityInfo: ResourceProvided[],
-    amenityInfo: ResourceProvided[]
+    amenityInfo: ResourceProvided[],
+    createdAt?: string,
+    updatedAt?: string
 }
 
+type Address = {
+    zipcode: number,
+    detail: string,
+    city: string,
+    county: string
+}
+
+// 個人資料
+export type MemberInfo = {
+    address: Address,
+    _id: string,
+    name: string,
+    email: string,
+    phone: string,
+    birthday: string,
+    createdAt: string,
+    updatedAt: string,
+    id: string
+}
+
+// 訂單資料
+import { UserRegister } from "./form";
+export type OrderInfo = {
+    userInfo: Partial<UserRegister>,
+    _id: string,
+    roomId: Room,
+    checkInDate: string,
+    checkOutDate: string,
+    peopleNum: number,
+    orderUserId: string,
+    status: number,
+    createdAt: string,
+    updatedAt: string
+}
