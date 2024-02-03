@@ -4,7 +4,7 @@ import dayjs from "dayjs";
 const MemberInfo = ({ memberInfo }: ContextType) => {
 
     return (<>
-        <div className="d-flex justify-content-lg-between align-items-lg-start">
+        <div className="d-lg-flex justify-content-lg-between align-items-lg-start">
             <div className="card-radius card-pwd bg-white text-dark p-6 p-lg-8 mb-6 mb-lg-0 me-lg-8">
                 <h2 className="fs-6 fs-lg-5 fw-bold mb-6 mb-lg-8">修改密碼</h2>
                 <div>
