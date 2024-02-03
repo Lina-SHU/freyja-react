@@ -18,7 +18,7 @@ const Member = () => {
     }
     useEffect(() => {
         getMemberInfo();
-    })
+    }, []);
 
     return (<>
         <div className="space-top bg-member position-relative py-8 py-lg-18">

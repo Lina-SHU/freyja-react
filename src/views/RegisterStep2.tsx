@@ -107,7 +107,7 @@ const Registerstep2 = () => {
                 background: '#F0F0F2',
                 padding: 25
             })
-            navigate('/freyja/login');
+            navigate('/member/memberinfo');
         })
     }
 

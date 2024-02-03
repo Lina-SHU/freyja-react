@@ -28,6 +28,8 @@ export default {
             const res = await axiosInstance.post(`/user/signup`, obj);
             if (!res.status) return;
 
+            tokenHelper.setToken(res.data.token);
+
             return {
                 isSuccess: true
             }

@@ -14,6 +14,20 @@ export default {
             };
 
             const result: ApiResponse<MemberInfo> = res.data;
+            
+            // 取得郵遞區號對應縣市鄉鎮
+            const zipcode: number = result.result.address.zipcode;
+            const zipcodes = await fetch('/tw-zipcode.json');
+            const resJson = await zipcodes.json();
+
+            for (let key in resJson) {
+                for (let zip in resJson[key]) {
+                    if (resJson[key][zip] === zipcode.toString()) {
+                        result.result.address.city = key;
+                        result.result.address.county = zip;
+                    }
+                }
+            }
 
             return {
                 isSuccess: true,
