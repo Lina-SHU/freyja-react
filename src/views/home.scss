@@ -125,7 +125,7 @@
 
 .bg-aboutus{
     padding-top: 120px;
-    padding-bottom: 80px;
+    padding-bottom: 56px;
     background-image: url('../assets/img/mb/about.png');
     background-position: center 20%;
     background-repeat: no-repeat;
@@ -150,7 +150,7 @@
     }
 }
 
-.bg-room-title{
+.bg-room{
     background-image: url('../assets/img/mb/bg.png');
     background-repeat: no-repeat;
     background-position: center 60%;
@@ -164,5 +164,25 @@
     }
     @media (min-width: 1600px) {
         background-position: center 110%;
+    }
+}
+
+.bg-room-swiper{
+    @media (min-width: 992px) {
+        background-image: url('../assets/img/pc/line3.png');
+        background-position: 100% 10%;
+        background-repeat: no-repeat;
+        background-size: 60%;
+    }
+}
+
+.bg-mb-room{
+    height: 84px;
+    background-image: url('../assets/img/mb/line.png');
+    background-position: 100% 0%;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    @media (min-width: 576px) {
+        background-size: contain;
     }
 }

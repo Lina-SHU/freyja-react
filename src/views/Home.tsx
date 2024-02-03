@@ -161,10 +161,11 @@ const Home = () => {
                 </div>
             </section>
             {/* 房客旅宿 */}
-            <section className='pb-13 pt-5 py-lg-18 bg-room-title'>
+            <div className="bg-mb-room d-lg-none"></div>
+            <section className='pb-13 pt-5 py-lg-18 bg-room'>
                 <div className="room-container">
                     <Swiper
-                        className='room-swiper'
+                        className='room-swiper bg-room-swiper'
                         allowTouchMove={false}
                         onSwiper={setSwiper}
                     >
