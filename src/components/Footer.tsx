@@ -1,6 +1,6 @@
 import IGIcon from "../assets/img/icon/LINE.png";
 import LINEIcon from "../assets/img/icon/IG.png";
-
+import LogoImg from "../assets/img/pc/logo.png";
 
 const Footer = () => {
     return (<>
@@ -8,8 +8,7 @@ const Footer = () => {
             <div className="d-lg-flex justify-content-lg-between mb-lg-13">
                 <div>
                     <a className="d-block mb-8" href="#">
-                        享樂酒店<br />
-                        <span>Enjoyment Luxury Hotel</span>
+                        <img className="logo-width" src={LogoImg} alt="享樂酒店" />
                     </a>
                     <div className="mb-8 mb-lg-0">
                         <ul className="list-unstyled d-flex mb-0">
