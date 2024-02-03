@@ -17,7 +17,7 @@ export default {
             
             // 取得郵遞區號對應縣市鄉鎮
             const zipcode: number = result.result.address.zipcode;
-            const zipcodes = await fetch('/tw-zipcode.json');
+            const zipcodes = await fetch('/freyja-react/tw-zipcode.json');
             const resJson = await zipcodes.json();
 
             for (let key in resJson) {

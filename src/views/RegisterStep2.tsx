@@ -17,7 +17,7 @@ const Registerstep2 = () => {
     const [zipCode, setZipCode] = useState([]);
     useEffect(() => {
         const getZipCode = async () => {
-            const res = await fetch('/tw-zipcode.json');
+            const res = await fetch('/freyja-react/tw-zipcode.json');
             const resJson = await res.json();
             setZipCode(resJson);
         };
