@@ -74,26 +74,29 @@ const Home = () => {
     }, []);
 
     return (<>
-        <main>
+        <main className='home'>
             {/* Banner */}
-            <section className="bg-banner position-relative d-flex justify-content-center align-items-center min-vh-100">
+            <section className="bg-banner position-relative d-flex justify-content-center align-items-center min-vh-100 pb-10 pb-lg-0">
                 <div className="bg-banner-black position-absolute top-0 bottom-0 start-0 end-0"></div>
-                <div className="container position-relative d-lg-flex align-items-lg-center justify-content-lg-between mt-13">
-                    <div className="banner-subTitle-width text-center text-lg-start pe-lg-13">
+                <div className="container position-relative d-lg-flex align-items-lg-center justify-content-lg-start mt-13">
+                    <div className="banner-subTitle-width text-center text-lg-start">
                         <h2 className="fs-4 fs-lg-2 text-primary fw-bold mb-2">享樂酒店</h2>
                         <p className="fs-title fs-lg-5 text-primary fw-bold mb-5 mb-lg-8">Enjoyment Luxury Hotel</p>
                         <div className="divide-line banner-divide-line bg-white mx-auto mb-8 mb-lg-0 mx-lg-0"></div>
                     </div>
-                    <div className="banner-title-width">
-                        <h1 className="fs-1 fw-bold mb-6">
-                            <div className="mb-2">高雄</div>
-                            豪華住宿之選
-                        </h1>
-                        <p className="fs-title text-normal mb-8">我們致力於為您提供無與倫比的奢華體驗與優質服務</p>
-                        <button type="button" className="btn btn-home btn-CTA w-100 p-5 p-lg-8 fw-bold fs-title fs-lg-5 rounded-3 d-flex align-items-center justify-content-end">    
-                            <span className="me-4">立即訂房</span>
-                            <div className="btn-divide"></div>
-                        </button>
+                    <div className="banner-title-width position-relative">
+                        <div className="bg-title bg-blur position-absolute"></div>
+                        <div className="title-width position-relative py-10">
+                            <h1 className="fs-1 fw-bold mb-6">
+                                <div className="mb-2">高雄</div>
+                                豪華住宿之選
+                            </h1>
+                            <p className="fs-title text-normal mb-8">我們致力於為您提供無與倫比的奢華體驗與優質服務</p>
+                            <button type="button" className="btn btn-home btn-CTA w-100 p-5 p-lg-8 fw-bold fs-title fs-lg-5 rounded-3 d-flex align-items-center justify-content-end">    
+                                <span className="me-4">立即訂房</span>
+                                <div className="btn-divide"></div>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -132,7 +135,7 @@ const Home = () => {
                 </div>
             </section>
             {/* 關於我們 */}
-            <section className='bg-aboutus py-8'>
+            <section className='bg-aboutus'>
                 <div className="container">
                     <div className='aboutus-area me-2 ms-6 p-6 p-lg-13 ms-auto'>
                         <div className="d-flex align-items-center mb-8 mb-lg-13">
@@ -158,7 +161,7 @@ const Home = () => {
                 </div>
             </section>
             {/* 房客旅宿 */}
-            <section className='pb-13 pt-5 py-lg-18'>
+            <section className='pb-13 pt-5 py-lg-18 bg-room-title'>
                 <div className="room-container">
                     <Swiper
                         className='room-swiper'
@@ -187,7 +190,7 @@ const Home = () => {
                                                     })
                                                 }
                                             </Swiper>
-                                            <div>
+                                            <div className='pe-lg-3'>
                                                 <h3 className='fs-4 fs-lg-2 fw-bold mb-2 mg-lg-4'>{room.name}</h3>
                                                 <p className='fs-body2 fs-lg-body mb-6 mb-lg-8'>{room.description}</p>
                                                 <p className='fs-5 fw-bold mb-6 mb-lg-8'>NT$ {currencyUtil(room.price)}</p>
