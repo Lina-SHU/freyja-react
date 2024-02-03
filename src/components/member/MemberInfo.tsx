@@ -1,4 +1,3 @@
-import { MemberInfo } from "../../types/api";
 import { ContextType } from "../../types/member";
 import dayjs from "dayjs";
 
@@ -14,7 +13,7 @@ const MemberInfo = ({ memberInfo }: ContextType) => {
                     <div className="d-flex justify-content-between">
                         <div>
                             <h3 className="fs-body2 fs-lg-body text-neutral mb-2">密碼</h3>
-                            <p className="d-flex py-2 mb-0">
+                            <div className="d-flex py-2 mb-0">
                                 <div className="pwd-dot me-2"></div>
                                 <div className="pwd-dot me-2"></div>
                                 <div className="pwd-dot me-2"></div>
@@ -25,7 +24,7 @@ const MemberInfo = ({ memberInfo }: ContextType) => {
                                 <div className="pwd-dot me-2"></div>
                                 <div className="pwd-dot me-2"></div>
                                 <div className="pwd-dot"></div>
-                            </p>
+                            </div>
                         </div>
                         <button type="button" className="btn text-primary fs-body2 fs-lg-body fw-bold">重設</button>
                     </div>

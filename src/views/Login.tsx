@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import './login.scss';
@@ -11,6 +11,8 @@ import AuthSrv from '../service/Auth.ts';
 const FreyjaSwal = withReactContent(Swal);
 
 const Login = () => {
+    const navigate = useNavigate();
+
     const {
         register,
         handleSubmit,
@@ -38,7 +40,8 @@ const Login = () => {
                 width: 500,
                 background: '#F0F0F2',
                 padding: 25
-            })
+            });
+            navigate('/member/memberinfo');
         })
     }
 

@@ -25,7 +25,7 @@ const Member = () => {
             <div className="bg-banner-gray position-absolute top-0 bottom-0 start-0 end-0"></div>
             <div className="container d-lg-flex align-items-lg-center position-relative">
                 <img className="memberImg mb-4 mb-lg-0 me-lg-6" src={memberIcon} alt="會員大頭照" />
-                <h1 className='fs-1'>Hello，{memberInfo?.email}</h1>
+                <h1 className='fs-1'>Hello，{memberInfo?.name}</h1>
             </div>
         </div>
         <Outlet context={{ memberInfo }} />

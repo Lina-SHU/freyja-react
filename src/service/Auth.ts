@@ -1,12 +1,15 @@
 import axios from "axios"
 import { axiosInstance } from "../util/axios";
 import { UserLogin, UserRegister } from "../types/form";
+import tokenHelper from "../util/token";
 
 export default {
     async userLogin (obj: UserLogin) {
         try {
             const res = await axiosInstance.post(`/user/login`, obj);
             if (!res.status) return;
+
+            tokenHelper.setToken(res.data.token);
 
             return {
                 isSuccess: true

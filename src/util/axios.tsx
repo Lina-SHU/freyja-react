@@ -1,6 +1,7 @@
 import axios from 'axios';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 const { VITE_APIPATH } = import.meta.env;
+import tokenHelper from './token';
 
 //Axios 工具
 const link = VITE_APIPATH;
@@ -13,10 +14,10 @@ const axiosInstance = axios.create({
 // axios header 自動攜帶token 工具
 axiosInstance.interceptors.request.use(
     (config) => {
-        //   const token = tokenHelper.getToken();
-        //     if (token) {
-        //       config.headers['Authorization'] = `Bearer ${token}`
-        //     }
+        const token = tokenHelper.getToken();
+        if (token) {
+            config.headers['Authorization'] = token
+        }
         return config
     },
     (err) => Promise.reject(err)
