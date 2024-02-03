@@ -16,6 +16,8 @@ import trainIcon from '../assets/img/icon/ic_train.png';
 import luxuryCarIcon from '../assets/img/icon/ic_luxurycar.png';
 import bgMBImg from '../assets/img/mb/line.png';
 import bgPCImg from '../assets/img/pc/line2.png';
+import bgPCDotImg from '../assets/img/pc/dot.png';
+import bgMBDotImg from '../assets/img/mb/dot.png';
 import bgPCCulinaryImg from '../assets/img/pc/line.png';
 import leftIcon from '../assets/img/icon/leftButton.png';
 import rightIcon from '../assets/img/icon/rightButton.png';
@@ -102,8 +104,10 @@ const Home = () => {
                 </div>
             </section>
             {/* 最新消息 */}
-            <section className="bg-section py-13">
-                <div className="container d-lg-flex justify-content-lg-between">
+            <section className="bg-section py-13 overflow-hidden">
+                <div className="container d-lg-flex justify-content-lg-between position-relative">
+                    <img src={bgMBDotImg} alt="line" className='bg-news-dot position-absolute d-lg-none img-fluid' />
+                    <img src={bgPCDotImg} alt="line" className='bg-news-dot position-absolute d-none d-lg-block img-fluid' />
                     <div className="news-title">
                         <h2 className="fs-3 fs-lg-1 fw-bold text-primary mb-6 mb-lg-8">
                             <div className="mb-1">最新</div>
@@ -137,7 +141,8 @@ const Home = () => {
             </section>
             {/* 關於我們 */}
             <section className='bg-aboutus'>
-                <div className="container">
+                <div className="container position-relative">
+                    <img src={bgPCDotImg} alt="line" className='bg-about-dot position-absolute d-none d-lg-block img-fluid' />
                     <div className='aboutus-area me-2 ms-6 p-6 p-lg-13 ms-auto'>
                         <div className="d-flex align-items-center mb-8 mb-lg-13">
                             <h2 className="fs-3 fs-lg-1 fw-bold text-white me-8">
@@ -231,7 +236,7 @@ const Home = () => {
                 </div>
             </section>
             {/* 佳餚美饌 */}
-            <section className="bg-section py-13 py-lg-18 position-relative">
+            <section className="bg-section py-13 py-lg-18">
                 <div className="container position-relative">
                     <img src={bgPCCulinaryImg} alt="line" className='bg-culinary position-absolute d-none d-lg-block img-fluid' />
                     <div className="d-flex align-items-center mb-8 mb-lg-13">
