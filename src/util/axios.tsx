@@ -1,9 +1,9 @@
 import axios from 'axios';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
-const { VITE_PATH } = import.meta.env;
+const { VITE_APIPATH } = import.meta.env;
 
 //Axios 工具
-const link = VITE_PATH;
+const link = VITE_APIPATH;
 
 const baseURL = `${link}/api/v1`;
 const axiosInstance = axios.create({
