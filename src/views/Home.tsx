@@ -8,14 +8,14 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import homeSrv from '../service/home';
 import roomSrv from '../service/room';
-import currencyUtil from "../service/utils"; 
+import currencyUtil from "../util/utils"; 
 import Footer from "../components/Footer";
 import './home.scss';
 import carIcon from '../assets/img/icon/ic_car.png';
 import trainIcon from '../assets/img/icon/ic_train.png';
 import luxuryCarIcon from '../assets/img/icon/ic_luxurycar.png';
-import transMBImg from '../assets/img/mb/line.png';
-import transPCImg from '../assets/img/pc/line2.png';
+import bgMBImg from '../assets/img/mb/line.png';
+import bgPCImg from '../assets/img/pc/line2.png';
 import leftIcon from '../assets/img/icon/leftButton.png';
 import rightIcon from '../assets/img/icon/rightButton.png';
 
@@ -24,14 +24,12 @@ const Home = () => {
     const [swiper, setSwiper] = useState<SwiperCore>();
     const prevPage = (e: React.MouseEvent) => {
         e.preventDefault();
-        console.log(swiper)
         if (swiper && swiper.slidePrev) {
             swiper.slidePrev();
         }
     };
     const nextPage = (e: React.MouseEvent) => {
         e.preventDefault();
-        console.log(swiper)
         if (swiper && swiper.slideNext) {
             swiper.slideNext();
         }
@@ -41,7 +39,7 @@ const Home = () => {
     const getRooms = () => {
         roomSrv.getRoomList().then((res) => {
             if (!res.isSuccess) return;
-            setRooms((res as ServiceSuccessResponse<Room>).data);
+            setRooms((res as ServiceSuccessResponse<Room[]>).data);
         })
     };
 
@@ -54,7 +52,7 @@ const Home = () => {
     const getNews = () => {
         homeSrv.getNews().then((res) => {
             if (!res.isSuccess) return;
-            setNews((res as ServiceSuccessResponse<News>).data);
+            setNews((res as ServiceSuccessResponse<News[]>).data);
         })
     };
 
@@ -67,7 +65,7 @@ const Home = () => {
     const getCulinary = () => {
         homeSrv.getCulinary().then((res) => {
             if (!res.isSuccess) return;
-            setCulinaries((res as ServiceSuccessResponse<Culinary>).data);
+            setCulinaries((res as ServiceSuccessResponse<Culinary[]>).data);
         })
     };
 
@@ -111,7 +109,7 @@ const Home = () => {
                     </div>
                     <ul className="news-content list-unstyled mb-0">
                         {
-                            news.length > 0 && (
+                            news && news.length > 0 && (
                                 news.map((n) => {
                                     return (
                                         <li key={n._id} className="mb-8 d-lg-flex align-items-lg-center w-100">
@@ -133,7 +131,32 @@ const Home = () => {
                     </ul>
                 </div>
             </section>
-            {/*  */}
+            {/* 關於我們 */}
+            <section className='bg-aboutus py-8'>
+                <div className="container">
+                    <div className='aboutus-area me-2 ms-6 p-6 p-lg-13 ms-auto'>
+                        <div className="d-flex align-items-center mb-8 mb-lg-13">
+                            <h2 className="fs-3 fs-lg-1 fw-bold text-white me-8">
+                                <div className="mb-1">關於</div>
+                                <div>我們</div>
+                            </h2>
+                            <div className="divide-width title-divide"></div>
+                        </div>
+                        <p className='fs-body2 fs-lg-body mb-4 mb-lg-8'>
+                            享樂酒店，位於美麗島高雄的心臟地帶，是這座城市的璀璨瑰寶與傲人地標。我們的存在，不僅僅是為了提供奢華的住宿體驗，更是為了將高雄的美麗與活力，獻給每一位蒞臨的旅客。 
+                        </p>
+                        <p className='fs-body2 fs-lg-body mb-4 mb-lg-8'>
+                            我們的酒店，擁有時尚典雅的裝潢，每一個細節都充滿著藝術與設計的精緻。我們的員工，都以熱情的服務與專業的態度，讓每一位客人都能感受到賓至如歸的溫暖。 
+                        </p>
+                        <p className='fs-body2 fs-lg-body mb-4 mb-lg-8'>
+                            在這裡，您可以遙望窗外，欣賞高雄的城市景色，感受這座城市的繁華與活力；您也可以舒適地坐在我們的餐廳，品嚐精緻的佳餚，體驗無與倫比的味覺盛宴。 
+                        </p>
+                        <p className='fs-body2 fs-lg-body'>
+                            享樂酒店，不僅是您在高雄的住宿之選，更是您感受高雄魅力的最佳舞台。我們期待著您的蒞臨，讓我們共同編織一段難忘的高雄故事。
+                        </p>
+                    </div>
+                </div>
+            </section>
             {/* 房客旅宿 */}
             <section className='pb-13 pt-5 py-lg-18'>
                 <div className="room-container">
@@ -143,7 +166,7 @@ const Home = () => {
                         onSwiper={setSwiper}
                     >
                         {
-                            rooms.length > 0 && 
+                            rooms && rooms.length > 0 && 
                                 rooms.map((room) => {
                                     return (
                                         <SwiperSlide key={room._id} className='bg-transparent d-lg-flex align-items-lg-end'>
@@ -227,7 +250,7 @@ const Home = () => {
                         }}
                     >
                         {
-                            culinaries.length ? (
+                            culinaries && culinaries.length ? (
                                 culinaries.map((culinary) => {
                                     return (
                                         <SwiperSlide key={culinary._id} className='rounded-3 overflow-hidden' style={{ backgroundImage: `url(${culinary.image})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
@@ -279,8 +302,8 @@ const Home = () => {
                     </ul>
                 </div>
             </section>
-            <img src={transMBImg} alt="line" className='d-md-none img-fluid' />
-            <img src={transPCImg} alt="line" className='d-none d-md-block img-fluid' />
+            <img src={bgMBImg} alt="line" className='d-md-none img-fluid' />
+            <img src={bgPCImg} alt="line" className='d-none d-md-block img-fluid' />
         </main>
         <Footer />
     </>)
