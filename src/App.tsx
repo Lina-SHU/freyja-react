@@ -1,5 +1,5 @@
-import { Routes, Route } from 'react-router-dom';
-import { Outlet } from 'react-router-dom';
+import { Routes, Route, Outlet, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import NavBar from "./components/NavBar";
 import Home from './views/Home';
 import Freyja from './views/Freyja';
@@ -11,6 +11,10 @@ import Member from './views/Member';
 import MemberNav from './views/MemberNav';
 
 function App() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+}, [pathname]);
 
   return (
     <>
